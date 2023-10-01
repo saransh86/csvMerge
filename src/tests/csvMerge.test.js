@@ -7,14 +7,14 @@ describe("csv merge test methods", () => {
     let file2;
     beforeEach(() => {
         
-        file1 = fs.openSync('../testFiles/file1.csv', "w");
-        file2 = fs.openSync('../testFiles/file2.csv', "w");
+        file1 = fs.openSync('./testFiles/file1.csv', "w");
+        file2 = fs.openSync('./testFiles/file2.csv', "w");
     })
 
     afterEach(() => {
-        fs.unlinkSync('../testFiles/file1.csv');
-        fs.unlinkSync('../testFiles/file2.csv');
-        fs.unlinkSync('../testFiles/result.csv');
+        fs.unlinkSync('./testFiles/file1.csv');
+        fs.unlinkSync('./testFiles/file2.csv');
+        fs.unlinkSync('./testFiles/result.csv');
 
     })
 
@@ -24,7 +24,7 @@ describe("csv merge test methods", () => {
         fs.appendFileSync(file1,"name,age,location");
         fs.appendFileSync(file2, "car,location");
         csv.run();
-        let res = fs.readFileSync("../testFiles/result.csv", 'utf-8');
+        let res = fs.readFileSync("./testFiles/result.csv", 'utf-8');
         expect(res).toBe("name,age,location,car");
          
     });
@@ -35,7 +35,7 @@ describe("csv merge test methods", () => {
         fs.appendFileSync(file1, "\nSaransh,35,Chicago");
         fs.appendFileSync(file2, "car,location");
         csv.run();
-        let res = fs.readFileSync("../testFiles/result.csv", 'utf-8');
+        let res = fs.readFileSync("./testFiles/result.csv", 'utf-8');
         expect(res).toBe("name,age,location,car\nSaransh,35,Chicago,");
     })
 
@@ -45,7 +45,7 @@ describe("csv merge test methods", () => {
         fs.appendFileSync(file2, "car,location");
         fs.appendFileSync(file2, "\nAudi,Chicago")
         csv.run();
-        let res = fs.readFileSync("../testFiles/result.csv", 'utf-8');
+        let res = fs.readFileSync("./testFiles/result.csv", 'utf-8');
         expect(res).toBe("name,age,location,car\n,,Chicago,Audi");
     })
 
@@ -56,7 +56,7 @@ describe("csv merge test methods", () => {
         fs.appendFileSync(file2, "car,location");
         fs.appendFileSync(file2, "\nAudi,Chicago")
         csv.run();
-        let res = fs.readFileSync("../testFiles/result.csv", 'utf-8');
+        let res = fs.readFileSync("./testFiles/result.csv", 'utf-8');
         expect(res).toBe("name,age,location,car\nSaransh,35,Chicago,Audi");
     })
 });
