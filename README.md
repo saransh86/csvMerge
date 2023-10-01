@@ -11,7 +11,7 @@
 * Clone this repository
 * cd into the root directory
 * Run `npm install`
-* To run the code: `node main.js`
+* To run the code: `node main.js`. A results.csv file will be generated under src directory.
 * To run tests: `npm test`
 * By default, it picks up 2 tests files in the files directory. 
 * Change the location of the files in the main.js. Use relative paths.
