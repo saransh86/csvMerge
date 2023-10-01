@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
-    "start": "node main.js"
+    "start": "node src/main.js"
   },
   "author": "",
   "license": "ISC",
